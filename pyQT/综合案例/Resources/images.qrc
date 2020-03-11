@@ -2,4 +2,12 @@
   <qresource prefix="register">
     <file>images/register_background.jpg</file>
   </qresource>
+  <qresource prefix="login">
+    <file>images/login_top_bg.gif</file>
+    <file>images/login_combobox_icon.jpg</file>
+    <file>images/login_item_icon1.jpg</file>
+    <file>images/login_item_icon2.jpg</file>
+    <file>images/login_btn_icon.jpg</file>
+    <file>images/login_qrcode.jpg</file>
+  </qresource>
 </RCC>
