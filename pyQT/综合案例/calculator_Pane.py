@@ -2,12 +2,14 @@ from PyQt5.Qt import *
 import sys
 from Resources.caculator import Ui_Form
 
+
 class CaculatorPlne(QWidget,Ui_Form):
     def __init__(self,parent=None,*args,**kwargs):
         super(CaculatorPlne, self).__init__(parent,*args,**kwargs)
         self.setAttribute(Qt.WA_StyledBackground,True)
         self.setupUi(self)
-
+    def get_key(self,key,role):
+        print(key,role)
 
 
 if __name__ == '__main__':
