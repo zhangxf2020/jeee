@@ -11,6 +11,9 @@ class RegisterPane(QWidget,Ui_Form):
         self.setupUi(self)
         self.animation_targets =[self.about_menue_btn,self.reset_menue_btn,self.exit_menue_btn]
         self.animation_targets_pos = [target.pos() for target in self.animation_targets]
+        self.about_menue_btn.move(self.main_menue_btn.pos())
+        self.reset_menue_btn.move(self.main_menue_btn.pos())
+        self.exit_menue_btn.move(self.main_menue_btn.pos())
 
     def show_hide_menue(self,checked):
         animation_group = QSequentialAnimationGroup(self)#串行组动画,一个播放完之后再播放另一个
@@ -19,16 +22,16 @@ class RegisterPane(QWidget,Ui_Form):
             animation.setTargetObject(target)
             animation.setPropertyName(b'pos')
 
-            animation.setStartValue(self.animation_targets_pos[idx])#因为一开始是展开的,所以一开始的坐标为按钮的坐标
-            animation.setEndValue(self.main_menue_btn.pos())#回收到菜单按钮的坐标
+            animation.setStartValue(self.main_menue_btn.pos())#因为一开始是展开的,所以一开始的坐标为按钮的坐标
+            animation.setEndValue(self.animation_targets_pos[idx])#回收到菜单按钮的坐标
 
             animation.setDuration(200)#设置动画时长
             animation.setEasingCurve(QEasingCurve.OutBounce)#是指动画弹簧效果
             animation_group.addAnimation(animation)#往动画组内添加动画
         if checked:
-            animation_group.setDirection(QAbstractAnimation.Backward)#如果是按下状态,则需要收回所以是反着执行动画
+            animation_group.setDirection(QAbstractAnimation.Forward)#如果是按下状态,则需要收回所以是反着执行动画
         else:
-            animation_group.setDirection(QAbstractAnimation.Forward)
+            animation_group.setDirection(QAbstractAnimation.Backward)
         animation_group.start(QAbstractAnimation.DeleteWhenStopped)
 
 
@@ -43,7 +46,10 @@ class RegisterPane(QWidget,Ui_Form):
     def check_register(self):
         account_txt = self.account_le.text()
         password_txt = self.password_le.text()
-        self.register_account_pwd_signal.emit(account_txt,password_txt)
+        if self.enable_register_btn():
+            self.register_account_pwd_signal.emit(account_txt,password_txt)
+        else:
+            QMessageBox.information(self,'提示','两次密码输入不一致',QMessageBox.Ok,QMessageBox.Ok)
     def enable_register_btn(self):
         account_txt = self.account_le.text()
         password_txt = self.password_le.text()
@@ -58,5 +64,7 @@ class RegisterPane(QWidget,Ui_Form):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     win = RegisterPane()
+    win.exit_signal.connect(lambda :print('退出'))
+    win.register_account_pwd_signal.connect(lambda x,y:print(x,y))
     win.show()
     sys.exit(app.exec_())

@@ -15,9 +15,16 @@ class Caculator(QObject):
                 self.flag =False
                 return '0.0'
             if key_model['role'] == 'caculate':
+                if len(self.key_models)==0:
+                    return None
+                if len(self.key_models)>0 and self.key_models[-1]['role']=='operator':
+
+                    return self.key_models[0]['title']
                 if self.flag:
                     self.key_models[-1]['title'] += self.endstr
+                    self.key_models[0]['title']=str(eval(self.key_models[-1]['title']))
                     return str(eval(self.key_models[-1]['title']))
+
                 if len(self.key_models) !=0 and self.key_models[-1]['role'] != 'operator':
                     str1 = ''
                     self.endstr = self.key_models[-2]['title']+self.key_models[-1]['title']
@@ -29,7 +36,7 @@ class Caculator(QObject):
                     self.flag = True
                     return str(str1)
             if key_model['role'] == 'num':
-                if self.flag and self.key_models[-1]['role'] =='num':
+                if self.flag and self.key_models[-1]['role'] =='num' and key_model['title'] !='%' and key_model['title'] !='+/-':
                     self.key_models =[]
                     self.flag = False
                 if len(self.key_models) == 0:
@@ -40,6 +47,8 @@ class Caculator(QObject):
                         self.key_models.append(key_model)
                         self.key_models[-1]['title'] = '0.'
                         return self.key_models[-1]['title']
+                    elif key_model['title'] =='%' or key_model['title'] =='+/-' or key_model['role'] =='operator':
+                        return '0.0'
 
                 else:
                     if self.key_models[-1]['role'] != 'operator':
@@ -47,6 +56,7 @@ class Caculator(QObject):
                             self.key_models[-1]['title'] = str(float(self.key_models[-1]['title'])*-1)
                             return self.key_models[-1]['title']
                         elif key_model['title'] == '%':
+                            self.flag = True
                             self.key_models[-1]['title'] = str(float(self.key_models[-1]['title']) /100)
                             return self.key_models[-1]['title']
                         elif key_model['title'] != '.' and self.key_models[-1]['title'] =='0':
@@ -63,7 +73,13 @@ class Caculator(QObject):
                                 self.key_models[-1]['title'] += key_model['title']
                                 return self.key_models[-1]['title']
                     else:
-                        self.key_models.append(key_model)
+                        if key_model['title'] =='%':
+                            self.key_models[0]['title'] = str(float(self.key_models[0]['title'])/100)
+                            self.key_models = self.key_models[0:1]
+                        if key_model['title'] =='.':
+                            key_model['title']='0.'
+                        else:
+                            self.key_models.append(key_model)
                         return self.key_models[-1]['title']
             if key_model['role'] == 'operator':
                 self.flag = False

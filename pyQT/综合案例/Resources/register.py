@@ -2,11 +2,13 @@
 
 # Form implementation generated from reading ui file 'register.ui'
 #
-# Created by: PyQt5 UI code generator 5.11.3
+# Created by: PyQt5 UI code generator 5.14.1
 #
 # WARNING! All changes made in this file will be lost!
 
-from PyQt5 import QtCore, QtWidgets
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -36,10 +38,10 @@ class Ui_Form(object):
 "        \n"
 "}")
         self.main_menue_btn.setCheckable(True)
-        self.main_menue_btn.setChecked(True)
+        self.main_menue_btn.setChecked(False)
         self.main_menue_btn.setObjectName("main_menue_btn")
         self.about_menue_btn = QtWidgets.QPushButton(Form)
-        self.about_menue_btn.setGeometry(QtCore.QRect(80, 10, 40, 40))
+        self.about_menue_btn.setGeometry(QtCore.QRect(79, 3, 40, 40))
         self.about_menue_btn.setStyleSheet("QPushButton {\n"
 "    border-radius:20px;\n"
 "    color:white;\n"
@@ -60,7 +62,7 @@ class Ui_Form(object):
         self.about_menue_btn.setCheckable(False)
         self.about_menue_btn.setObjectName("about_menue_btn")
         self.reset_menue_btn = QtWidgets.QPushButton(Form)
-        self.reset_menue_btn.setGeometry(QtCore.QRect(70, 60, 40, 40))
+        self.reset_menue_btn.setGeometry(QtCore.QRect(65, 59, 40, 40))
         self.reset_menue_btn.setStyleSheet("QPushButton {\n"
 "    border-radius:20px;\n"
 "    color:white;\n"
@@ -81,7 +83,7 @@ class Ui_Form(object):
         self.reset_menue_btn.setCheckable(False)
         self.reset_menue_btn.setObjectName("reset_menue_btn")
         self.exit_menue_btn = QtWidgets.QPushButton(Form)
-        self.exit_menue_btn.setGeometry(QtCore.QRect(20, 80, 40, 40))
+        self.exit_menue_btn.setGeometry(QtCore.QRect(6, 84, 40, 40))
         self.exit_menue_btn.setStyleSheet("QPushButton {\n"
 "    border-radius:20px;\n"
 "    color:white;\n"
@@ -101,20 +103,20 @@ class Ui_Form(object):
 "}")
         self.exit_menue_btn.setCheckable(False)
         self.exit_menue_btn.setObjectName("exit_menue_btn")
-        self.widget = QtWidgets.QWidget(Form)
-        self.widget.setGeometry(QtCore.QRect(200, 230, 231, 207))
-        self.widget.setObjectName("widget")
-        self.formLayout = QtWidgets.QFormLayout(self.widget)
+        self.layoutWidget = QtWidgets.QWidget(Form)
+        self.layoutWidget.setGeometry(QtCore.QRect(200, 230, 231, 207))
+        self.layoutWidget.setObjectName("layoutWidget")
+        self.formLayout = QtWidgets.QFormLayout(self.layoutWidget)
         self.formLayout.setContentsMargins(0, 0, 0, 0)
         self.formLayout.setVerticalSpacing(15)
         self.formLayout.setObjectName("formLayout")
-        self.label = QtWidgets.QLabel(self.widget)
+        self.label = QtWidgets.QLabel(self.layoutWidget)
         self.label.setStyleSheet("color:rgb(255, 85, 0);\n"
 "\n"
 "font: 12pt \"楷体\";")
         self.label.setObjectName("label")
         self.formLayout.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.label)
-        self.account_le = QtWidgets.QLineEdit(self.widget)
+        self.account_le = QtWidgets.QLineEdit(self.layoutWidget)
         self.account_le.setMinimumSize(QtCore.QSize(0, 30))
         self.account_le.setStyleSheet("background-color:transparent;\n"
 "color:rgb(243, 243, 243);\n"
@@ -124,13 +126,13 @@ class Ui_Form(object):
         self.account_le.setClearButtonEnabled(True)
         self.account_le.setObjectName("account_le")
         self.formLayout.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.account_le)
-        self.label_2 = QtWidgets.QLabel(self.widget)
+        self.label_2 = QtWidgets.QLabel(self.layoutWidget)
         self.label_2.setStyleSheet("color:rgb(255, 85, 0);\n"
 "\n"
 "font: 12pt \"楷体\";")
         self.label_2.setObjectName("label_2")
         self.formLayout.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.label_2)
-        self.password_le = QtWidgets.QLineEdit(self.widget)
+        self.password_le = QtWidgets.QLineEdit(self.layoutWidget)
         self.password_le.setMinimumSize(QtCore.QSize(0, 30))
         self.password_le.setStyleSheet("background-color:transparent;\n"
 "color:rgb(243, 243, 243);\n"
@@ -139,13 +141,13 @@ class Ui_Form(object):
         self.password_le.setClearButtonEnabled(True)
         self.password_le.setObjectName("password_le")
         self.formLayout.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.password_le)
-        self.label_3 = QtWidgets.QLabel(self.widget)
+        self.label_3 = QtWidgets.QLabel(self.layoutWidget)
         self.label_3.setStyleSheet("color:rgb(255, 85, 0);\n"
 "\n"
 "font: 12pt \"楷体\";")
         self.label_3.setObjectName("label_3")
         self.formLayout.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.label_3)
-        self.confirm_pwd_le = QtWidgets.QLineEdit(self.widget)
+        self.confirm_pwd_le = QtWidgets.QLineEdit(self.layoutWidget)
         self.confirm_pwd_le.setMinimumSize(QtCore.QSize(0, 30))
         self.confirm_pwd_le.setStyleSheet("background-color:transparent;\n"
 "color:rgb(243, 243, 243);\n"
@@ -154,7 +156,7 @@ class Ui_Form(object):
         self.confirm_pwd_le.setClearButtonEnabled(True)
         self.confirm_pwd_le.setObjectName("confirm_pwd_le")
         self.formLayout.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.confirm_pwd_le)
-        self.pushButton = QtWidgets.QPushButton(self.widget)
+        self.pushButton = QtWidgets.QPushButton(self.layoutWidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -174,13 +176,7 @@ class Ui_Form(object):
 "}")
         self.pushButton.setObjectName("pushButton")
         self.formLayout.setWidget(3, QtWidgets.QFormLayout.SpanningRole, self.pushButton)
-        self.label.raise_()
-        self.label_2.raise_()
-        self.label_3.raise_()
-        self.account_le.raise_()
-        self.confirm_pwd_le.raise_()
-        self.password_le.raise_()
-        self.pushButton.raise_()
+        self.layoutWidget.raise_()
         self.about_menue_btn.raise_()
         self.reset_menue_btn.raise_()
         self.exit_menue_btn.raise_()
@@ -205,6 +201,7 @@ class Ui_Form(object):
         self.label_2.setText(_translate("Form", "密    码:"))
         self.label_3.setText(_translate("Form", "确认密码:"))
         self.pushButton.setText(_translate("Form", "注册"))
+import images_rc
 
 
 if __name__ == "__main__":
@@ -215,4 +212,3 @@ if __name__ == "__main__":
     ui.setupUi(Form)
     Form.show()
     sys.exit(app.exec_())
-

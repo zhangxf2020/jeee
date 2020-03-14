@@ -64,14 +64,14 @@ QPushButton:checked {
     <bool>true</bool>
    </property>
    <property name="checked">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="about_menue_btn">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>10</y>
+     <x>79</x>
+     <y>3</y>
      <width>40</width>
      <height>40</height>
     </rect>
@@ -105,8 +105,8 @@ QPushButton:checked {
   <widget class="QPushButton" name="reset_menue_btn">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>60</y>
+     <x>65</x>
+     <y>59</y>
      <width>40</width>
      <height>40</height>
     </rect>
@@ -140,8 +140,8 @@ QPushButton:checked {
   <widget class="QPushButton" name="exit_menue_btn">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>80</y>
+     <x>6</x>
+     <y>84</y>
      <width>40</width>
      <height>40</height>
     </rect>
@@ -172,7 +172,7 @@ QPushButton:checked {
     <bool>false</bool>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>200</x>
@@ -315,13 +315,7 @@ background-color: rgb(195, 130, 97);
     </item>
    </layout>
   </widget>
-  <zorder>label</zorder>
-  <zorder>label_2</zorder>
-  <zorder>label_3</zorder>
-  <zorder>account_le</zorder>
-  <zorder>confirm_pwd_le</zorder>
-  <zorder>password_le</zorder>
-  <zorder>pushButton</zorder>
+  <zorder>layoutWidget</zorder>
   <zorder>about_menue_btn</zorder>
   <zorder>reset_menue_btn</zorder>
   <zorder>exit_menue_btn</zorder>
@@ -354,8 +348,8 @@ background-color: rgb(195, 130, 97);
    <slot>about_lk()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>96</x>
-     <y>37</y>
+     <x>26</x>
+     <y>47</y>
     </hint>
     <hint type="destinationlabel">
      <x>-123</x>
@@ -370,8 +364,8 @@ background-color: rgb(195, 130, 97);
    <slot>reset()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>99</x>
-     <y>83</y>
+     <x>39</x>
+     <y>43</y>
     </hint>
     <hint type="destinationlabel">
      <x>-61</x>
@@ -386,8 +380,8 @@ background-color: rgb(195, 130, 97);
    <slot>exit_pane()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>34</x>
-     <y>103</y>
+     <x>24</x>
+     <y>43</y>
     </hint>
     <hint type="destinationlabel">
      <x>-58</x>

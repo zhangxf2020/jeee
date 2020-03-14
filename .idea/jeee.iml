@@ -6,7 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/pyQT/综合案例/Resources/UI" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/pyQT/综合案例" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.7 (jeee)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.7 (pyqt5)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
