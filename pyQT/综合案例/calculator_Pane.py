@@ -27,7 +27,10 @@ class Caculator(QObject):
 
                 if len(self.key_models) !=0 and self.key_models[-1]['role'] != 'operator':
                     str1 = ''
-                    self.endstr = self.key_models[-2]['title']+self.key_models[-1]['title']
+                    try:
+                        self.endstr = self.key_models[-2]['title']+self.key_models[-1]['title']
+                    except:
+                        return self.key_models[-1]['title']
                     for model in self.key_models:
                         str1 +=model['title']
                     str1 =eval(str1)
@@ -78,6 +81,8 @@ class Caculator(QObject):
                             self.key_models = self.key_models[0:1]
                         if key_model['title'] =='.':
                             key_model['title']='0.'
+                            self.key_models.append(key_model)
+
                         else:
                             self.key_models.append(key_model)
                         return self.key_models[-1]['title']
